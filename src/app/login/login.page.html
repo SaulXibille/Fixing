@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Iniciar Sesion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+
+    <ion-row>
+      <ion-col >
+        <img src="assets/icon/logo.png" class="logo" alt="" srcset="">
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Correo Electronico</ion-label>
+          <ion-input type="text" name="correo"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input type="password" name="contraseña"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col>
+          <ion-button expand="block" color="medium">Iniciar Sesión</ion-button>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" id="btn-google">Inicia sesion google
+          <ion-icon name="logo-google" slot="start"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" id="btn-facebook">Inicia sesion facebook
+          <ion-icon name="logo-facebook" slot="start"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+
+  </ion-grid>
+</ion-content>
