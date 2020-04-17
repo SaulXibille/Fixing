@@ -4,6 +4,7 @@ import { Http,Response } from '@angular/http';
 import { PostService } from '../Servicios/post.service';
 import 'rxjs/Rx';
 import { AlertController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-registro',
@@ -15,7 +16,7 @@ export class RegistroPage {
   contrasenia:String ="";
   confirmarContrasenia:String ="";
 
-  constructor( private http:Http, private postSer:PostService, public alertController: AlertController) { 
+  constructor( private http:Http, private postSer:PostService, public alertController: AlertController, public toastController: ToastController) { 
     
   }
 
@@ -49,7 +50,7 @@ export class RegistroPage {
     }
     else{
       let mensaje = "La contraseña no coincide.";
-      this.alerta(mensaje);
+      this.presentToastWithOptions(mensaje);
     }
     // let body = {
     //   correo: this.correo,
@@ -74,6 +75,23 @@ export class RegistroPage {
     });
 
     await alert.present();
+  }
+
+  async presentToastWithOptions(mensaje) {
+    const toast = await this.toastController.create({
+      message: mensaje,
+      position: 'top',
+      buttons: [
+        {
+          text: 'Aceptar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    toast.present();
   }
 
 }
