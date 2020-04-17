@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PostService } from '../services/post.service';
+import { PostService } from '../Servicios/post.service';
 import { Http } from '@angular/http';
-import { ToastController } from '@ionic/angular';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,15 +9,12 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  correo: string = "";
-  contrasena: string = "";
+  correo: string;
+  contrasena: string;
 
-  constructor(
-    private router: Router,
-    public http: Http, 
-    private postSer: PostService, 
-    public toastCtrl: ToastController
-    ) {  }
+  constructor(public http: Http, private postSer: PostService) { 
+    
+  }
 
   ngOnInit() {
   }
@@ -35,37 +30,15 @@ export class LoginPage implements OnInit {
       console.log(body.correo + " : " + body.contrasena);
 
       this.postSer.postData(body, 'login.php').subscribe(async data =>{
-        var msg = data.msg;
-        if(data.success) {
-          this.router.navigate(['/servicios']);
-          const toast = await this.toastCtrl.create({
-            message: 'Inicio Sesión Correctamente.',
-            duration: 2000
-          });
-          toast.present();
-          this.correo = "";
-          this.contrasena = "";
-          console.log(data);     
-        } else {
-          const toast = await this.toastCtrl.create({
-            message: msg,
-            duration: 2000
-          });
-            toast.present();
-        }
+        if(data.success)
+          console.log(data);      
+        else
+          console.log("No existe ese usuario");
       });
 
     }else {
-      const toast = await this.toastCtrl.create({
-        message: 'Ingrese Usuario y Contraseña.',
-        duration: 2000
-      });
-      toast.present();
+      console.log("Ingrese una contraseña");
     }
-  }
-
-  Registro(){
-  	this.router.navigate(['/registro']);
   }
 
 }

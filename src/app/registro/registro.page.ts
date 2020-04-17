@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http,Response } from '@angular/http';
 //import { HttpClient } from '@angular/common/http';
-import { PostService } from '../services/post.service';
+import { PostService } from '../Servicios/post.service';
 import 'rxjs/Rx';
 import { AlertController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
