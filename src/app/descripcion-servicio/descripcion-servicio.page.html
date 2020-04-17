@@ -1,0 +1,24 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light" class="titulo">Descripcion del servicio</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleMenu()">
+      <ion-icon slot="icon-only" name="menu" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <img src="/assets/images/oficios.jpg">
+    <p class="mt-4 title">Limpio y rápido enjarrado para todo tipo de casas.</p>
+    <p class="mt-4 subtitle">Trabajador: Luis Perez</p>
+    <p class="mt-4 subtitle">Trabajos realizados: 25</p>
+    <p class="mt-4 subtitle">Puntuacion: </p>
+    <ion-button href="/contacto" class="top20 container-fluid boton mb-5 mt-4"color="secondary" >Contactar</ion-button>
+  </ion-card>
+</ion-content>

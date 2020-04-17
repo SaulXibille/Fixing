@@ -1,0 +1,30 @@
+ion-content{
+
+    --ion-background-color:#EBEFF2;
+}
+ion-header{
+
+    --ion-background-color:#F27405;
+}
+.titulo{
+    color: white;
+    margin-left: 28% ;
+}
+.top20{
+    margin-top: 20px;
+    text-align: right;
+}
+ion-input, ion-textarea, ion-item{
+    --border-color: #707070!important;
+    --highlight-height: 0;
+    background-color: white!important;
+    /* border: 1px solid #dedede; */
+    border-radius: 6px;
+    margin-left: 0px;
+    width: auto;
+    &.item-has-focus {
+        border: 1px solid var(--ion-color-light);
+
+
+    }
+}
