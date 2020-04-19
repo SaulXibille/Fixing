@@ -13,7 +13,7 @@ const routes: Routes = [
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
   },
   {
-    path: 'contacto',
+    path: 'contacto/:id',
     loadChildren: () => import('./contacto/contacto.module').then( m => m.ContactoPageModule)
   },
   {
@@ -21,15 +21,20 @@ const routes: Routes = [
     loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
   },
   {
-    path: 'descripcion-servicio',
+    path: 'descripcion-servicio/:id',
     loadChildren: () => import('./descripcion-servicio/descripcion-servicio.module').then( m => m.DescripcionServicioPageModule)
   },
   {
     path: 'servicio-trabajador',
     loadChildren: () => import('./servicio-trabajador/servicio-trabajador.module').then( m => m.ServicioTrabajadorPageModule)
-  },  {
-    path: 'servicios',
+  },
+  {
+    path: 'servicios/:id',
     loadChildren: () => import('./servicios/servicios.module').then( m => m.ServiciosPageModule)
+  },
+  {
+    path: 'inicio',
+    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
   },
 
 

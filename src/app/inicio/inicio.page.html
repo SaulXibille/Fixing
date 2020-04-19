@@ -1,0 +1,39 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleMenu()">
+        <ion-icon slot="icon-only" name="menu" color="black"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fondo">
+  <h2 class="text-center title mt-3">Mis Servicios</h2>
+  
+  <tr>
+    <th><ion-img class="img1" src="/assets/images/aire.png" [routerLink]="['/servicios', 1]"></ion-img></th>
+    <th><ion-img src="/assets/images/electricidad.png" [routerLink]="['/servicios', 2]"></ion-img></th>
+    <th><ion-img src="/assets/images/pintura.png" [routerLink]="['/servicios', 3]"></ion-img></th>
+  </tr>
+  <tr>
+    <td class="td1">Clima</td>  
+    <td class="td2">Electricidad</td>
+    <td class="td3">Pintura</td>
+  </tr>
+
+  <br>
+  <tr>
+    <th><ion-img class="img2" src="/assets/images/jardineria.png" [routerLink]="['/servicios', 4]"></ion-img></th>
+    <th><ion-img src="/assets/images/plomeria.png" [routerLink]="['/servicios', 5]"></ion-img></th>
+    <th><ion-img src="/assets/images/construccion.png" [routerLink]="['/servicios', 6]"></ion-img></th>
+  </tr>
+  <tr>
+    <td class="td4">Jardinería</td>  
+    <td class="td5">Plomería</td>
+    <td class="td6">Construcción</td>
+  </tr>
+
+</ion-content>

@@ -2,3 +2,31 @@ ion-header{
 
     --ion-background-color:#F27405;
 }
+ion-title{
+    text-align: center;
+}
+.solicitados{
+    color: #707070;
+}
+.card{
+    font-family: Roboto, sans-serif;
+    width: 400px;
+    border-radius: 5px;
+    -webkit-box-shadow: 3px 3px 5px 0px rgba(166,166,166,1);
+    -moz-box-shadow: 3px 3px 5px 0px rgba(166,166,166,1);
+    box-shadow: 3px 3px 5px 0px rgba(166,166,166,1);
+    overflow: hidden; /* otherwise header image won't respect rounded corners */
+    background: white;
+    transition: all .5s ease; /* back to normal */
+    width: 20rem !important;
+    margin-bottom: 5px;
+  }
+  .card:hover {
+    transform: translate3D(0,-1px,0) scale(1.03); /* move up slightly and zoom in */
+    -webkit-box-shadow: 3px 3px 5px 0px rgba(166,166,166,1);
+    -moz-box-shadow: 3px 3px 5px 0px rgba(166,166,166,1);
+    box-shadow: 3px 3px 5px 0px rgba(166,166,166,1);
+   
+    transition: all .4s ease; /* zoom in */
+    cursor: pointer;
+  }

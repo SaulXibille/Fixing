@@ -14,4 +14,28 @@
 
 <ion-content>
 
+  <h2 class="text-center">Trabajos mas solicitados</h2>
+  <div class="col-8 offset-2">
+    <p class="text-center solicitados mb-4" style="font-size:14px">Estos son los trabajos mas solicitados por temporada</p>
+  </div>
+
+  <ion-list *ngIf="servidores.length > 0; else noServidores">
+    <div class="row justify-content-center align-items-center" *ngFor="let servidor of servidores">
+      <div class="card">
+        <img class="card-img-top" src="/assets/images/oficios.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title text-center" style="font-weight: bold;">{{servidor.especialidad}}</h5>
+          <p class="card-text solicitados" >{{servidor.descripcion}}</p>
+          <p class="card-text " >{{servidor.nombre}}</p>
+          <ion-button  class="top20 container-fluid boton mb-3" color="secondary" [routerLink]="['/descripcion-servicio', servidor.id_servidores]">Solicitar</ion-button>
+        </div>
+      </div>
+    </div>
+  </ion-list>
+  <ng-template #noServidores>
+    <ion-text>
+      <p class="ion-text-center">No se ha registrado ningun servidor.</p>
+    </ion-text>
+  </ng-template>
+
 </ion-content>
