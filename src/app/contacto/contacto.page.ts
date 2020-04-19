@@ -12,7 +12,7 @@ import { PostService } from '../services/post.service';
 export class ContactoPage implements OnInit {
 
   argumento = null;
-  servidores = [];
+  contacto = [];
 
   constructor(
     private menuCtrl: MenuController,
@@ -38,7 +38,7 @@ export class ContactoPage implements OnInit {
     this.postSer.postData(body, 'api.php').subscribe(async data =>{
       if(data.success) {
         console.log(data.result);   
-        this.servidores = data.result;  
+        this.contacto = data.result;  
       } else {}
     });
   }
