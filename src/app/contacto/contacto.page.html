@@ -3,25 +3,19 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/" color="light"></ion-back-button>
     </ion-buttons>
-    <ion-title color="light" class="titulo">Servicio</ion-title>
+    <ion-title color="light" class="titulo">Informacion de contacto</ion-title>
     <ion-buttons slot="end">
-      <ion-button >
+      <ion-button (click)="toggleMenu()">
       <ion-icon slot="icon-only" name="menu" color="light"></ion-icon>
-    </ion-button>
-  </ion-buttons>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-<div class="row" *ngFor="let con of contacto">
-  <div class="col-6">
-    <img src="/assets/images/oficios.jpg" alt="">
-  </div>
-  <div class="col-6">
-    <h3>{{con.nombre}}</h3>
-    <h5>{{con.especialidad}}</h5>
-
-  </div>
-
-</div>
+  <ion-card *ngFor="let con of contacto">
+    <img src="/assets/images/oficios.jpg">
+    <p class="mt-4 subtitle">Nombre: {{con.nombre}}</p>
+    <p class="mt-4 subtitle">Celular: {{con.celular}}</p>
+  </ion-card>
 </ion-content>

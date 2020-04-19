@@ -24,6 +24,7 @@ export class InicioPage implements OnInit {
 
   toggleMenu(){
     this.menuCtrl.toggle();
+    // console.log("hola")
   }
 
   
