@@ -13,12 +13,12 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
+  <ion-card *ngFor="let servidor of servidores">
     <img src="/assets/images/oficios.jpg">
-    <p class="mt-4 title">Limpio y rápido enjarrado para todo tipo de casas.</p>
-    <p class="mt-4 subtitle">Trabajador: Luis Perez</p>
-    <p class="mt-4 subtitle">Trabajos realizados: 25</p>
-    <p class="mt-4 subtitle">Puntuacion: </p>
-    <ion-button href="/contacto" class="top20 container-fluid boton mb-5 mt-4"color="secondary" >Contactar</ion-button>
+    <p class="mt-4 title">{{servidor.descripcion}}</p>
+    <p class="mt-4 subtitle">Trabajador: {{servidor.nombre}}</p>
+    <p class="mt-4 subtitle">Trabajos realizados: 0</p>
+    <p class="mt-4 subtitle">Puntuacion: {{servidor.puntuacion}}</p>
+    <ion-button class="top20 container-fluid boton mb-5 mt-4" color="secondary" [routerLink]="['/contacto', servidor.id_servidores]" >Contactar</ion-button>
   </ion-card>
 </ion-content>

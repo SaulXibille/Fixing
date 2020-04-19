@@ -39,7 +39,7 @@ export class LoginPage implements OnInit {
       this.postSer.postData(body, 'login.php').subscribe(async data =>{
         var msg = data.msg;
         if(data.success) {
-          this.router.navigate(['/servicios']);
+          this.router.navigate(['/inicio']);
           const toast = await this.toastCtrl.create({
             message: 'Inicio Sesión Correctamente.',
             duration: 2000
