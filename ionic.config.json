@@ -1,5 +1,7 @@
 {
   "name": "Fixing",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

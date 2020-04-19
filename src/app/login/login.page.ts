@@ -3,6 +3,7 @@ import { PostService } from '../services/post.service';
 import { Http } from '@angular/http';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginPage implements OnInit {
     private router: Router,
     public http: Http, 
     private postSer: PostService, 
-    public toastCtrl: ToastController
+    public toastCtrl: ToastController,
+    private storage: Storage,
     ) {  }
 
   ngOnInit() {
@@ -42,6 +44,10 @@ export class LoginPage implements OnInit {
             message: 'Inicio Sesión Correctamente.',
             duration: 2000
           });
+          this.storage.set('idUsuario', data.result['id_usuario']);
+          // this.storage.get('idUsuario').then((val)=>{
+          //   console.log(val);
+          // });
           toast.present();
           this.correo = "";
           this.contrasena = "";

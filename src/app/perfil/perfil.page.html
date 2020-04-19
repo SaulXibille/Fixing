@@ -33,40 +33,40 @@
   </ion-fab>
   <ion-list>
     
-      <ion-input type="text" class="login mt-4 mr-2 ml-2" placeholder=" Nombre">
-
+      <ion-input [(ngModel)]="nombre" type="text" class="login mt-4 mr-2 ml-2" placeholder="Nombre">
+  
       </ion-input>
    
   
-      <ion-input type="text" class="login mt-2 mr-2 ml-2" placeholder=" Telefono">
+      <ion-input [(ngModel)]="telefono" type="text" class="login mt-2 mr-2 ml-2" placeholder="Telefono">
 
       </ion-input>
     
     
-      <ion-input type="text" class="login mt-2 mr-2 ml-2" placeholder=" Correo Electronico">
+      <ion-input [(ngModel)]="correo" type="text" class="login mt-2 mr-2 ml-2" placeholder=" Correo Electronico">
 
       </ion-input>
       <div class="row">
         <div class="col-12">
-          <ion-input type="text" class="login mt-2 mr-2 ml-2" placeholder=" Calle"></ion-input>
+          <ion-input [(ngModel)]="calle" type="text" class="login mt-2 mr-2 ml-2" placeholder=" Calle"></ion-input>
         </div>
       
         <div class="col-6">
-          <ion-input type="number" class="login mt-2 mr-0 ml-2" placeholder=" Num. interior"></ion-input>
+          <ion-input [(ngModel)]="numInterior" type="number" class="login mt-2 mr-0 ml-2" placeholder=" Num. interior"></ion-input>
         </div>
         
         <div class="col-6">
-          <ion-input type="number" class="login mt-2 mr-2 ml-0" placeholder=" Num. exterior"></ion-input>
+          <ion-input [(ngModel)]="numExterior" type="number" class="login mt-2 mr-2 ml-0" placeholder=" Num. exterior"></ion-input>
         </div>
         <div class="col-6">
-          <ion-input type="number" class="login mt-2 mr-0 ml-2" placeholder=" Codigo Postal"></ion-input>
+          <ion-input [(ngModel)]="codigoPostal" type="number" class="login mt-2 mr-0 ml-2" placeholder=" Codigo Postal"></ion-input>
         </div>
         <div class="col-6">
-          <ion-input type="text" class="login mt-2 mr-2 ml-0" placeholder=" Colonia"></ion-input>
+          <ion-input [(ngModel)]="colonia" type="text" class="login mt-2 mr-2 ml-0" placeholder=" Colonia"></ion-input>
         </div>
       </div>
-      <ion-textarea type="text" class="login mt-2 mr-2 ml-2 " placeholder=" Referencias" style="padding-bottom: 5%;">
-        <ion-fab vertical="bottom" horizontal="end" slot="fixed"  >
+      <ion-textarea [(ngModel)]="referencias" type="text" class="login mt-2 mr-2 ml-2 " placeholder=" Referencias" style="padding-bottom: 5%;">
+        <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed"  >
           <ion-fab-button color="light" size="small">
             <ion-icon icon="camera-outline"></ion-icon>
           </ion-fab-button>
@@ -77,11 +77,11 @@
          
             <ion-fab-button><ion-icon icon="camera-outline"></ion-icon></ion-fab-button>
           </ion-fab-list>
-        </ion-fab>
+        </ion-fab> -->
 
       </ion-textarea>
     
-    <ion-button  class="top20 container-fluid boton mb-4"color="secondary" >Actualizar</ion-button>
+    <ion-button  class="top20 container-fluid boton mb-4"color="secondary" (click)="insertarDatos()" >Actualizar</ion-button>
     
   </ion-list>
 </ion-content>

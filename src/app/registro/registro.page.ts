@@ -5,6 +5,7 @@ import { PostService } from '../services/post.service';
 import 'rxjs/Rx';
 import { AlertController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -16,7 +17,11 @@ export class RegistroPage {
   contrasenia:String ="";
   confirmarContrasenia:String ="";
 
-  constructor( private http:Http, private postSer:PostService, public alertController: AlertController, public toastController: ToastController) { 
+  constructor( private http:Http,
+     private postSer:PostService,
+      public alertController: AlertController, 
+      public toastController: ToastController,
+      private router: Router) { 
     
   }
 
@@ -25,7 +30,8 @@ export class RegistroPage {
   }
 
   async registro(){
-    if(this.contrasenia == this.confirmarContrasenia){
+    if(this.correo != "" && this.contrasenia != "" && this.confirmarContrasenia != ""){
+      if(this.contrasenia == this.confirmarContrasenia){
         let body = {
           correo: this.correo,
           opc: 'usuario',
@@ -33,7 +39,7 @@ export class RegistroPage {
         this.postSer.postData(body, 'registro.php').subscribe(async data =>{
           if(data.success){
             let mensaje="El correo ya se encuentra registrado.";
-            this.alerta(mensaje);
+            this.presentToast(mensaje);
           }     
           else{
               let user = {
@@ -44,13 +50,24 @@ export class RegistroPage {
 
               this.postSer.postData(user, 'registro.php').subscribe(async response =>{
                 console.log(response);
+                if(response.success){
+                  this.presentToast("La cuenta se ha creado exitosamente.");
+                  this.router.navigate(['/login']);
+                }
+                else{
+                  this.presentToast("Ha ocurrido un error en la conexión.");
+                }
               });
           }
         });
     }
     else{
       let mensaje = "La contraseña no coincide.";
-      this.presentToastWithOptions(mensaje);
+      this.presentToast(mensaje);
+    }
+    }
+    else{
+      this.presentToast("Todos los campos son obligatorios.");
     }
     // let body = {
     //   correo: this.correo,
@@ -77,19 +94,10 @@ export class RegistroPage {
     await alert.present();
   }
 
-  async presentToastWithOptions(mensaje) {
+  async presentToast(mensaje) {
     const toast = await this.toastController.create({
       message: mensaje,
-      position: 'top',
-      buttons: [
-        {
-          text: 'Aceptar',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        }
-      ]
+      duration: 2000
     });
     toast.present();
   }
