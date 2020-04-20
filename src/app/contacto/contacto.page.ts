@@ -28,6 +28,11 @@ export class ContactoPage implements OnInit {
     this.descripcion();
   }
 
+  toggleMenu(){
+    this.menuCtrl.toggle();
+    // console.log("hola")
+  }
+
   async descripcion() {  
 
     let body = {
