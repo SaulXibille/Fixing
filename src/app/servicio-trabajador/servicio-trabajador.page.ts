@@ -20,6 +20,8 @@ export class ServicioTrabajadorPage implements OnInit {
   nombre:String="";
   idUsuario:String="";
 
+  servicios = [];
+
   constructor(
     private http:Http,
     private postSer:PostService, 
@@ -32,6 +34,7 @@ export class ServicioTrabajadorPage implements OnInit {
     this.storage.get('idUsuario').then((val)=>{
       this.idUsuario = val;
       console.log(val);
+      this.mis_servicios();
     });
   }
 
@@ -79,6 +82,21 @@ export class ServicioTrabajadorPage implements OnInit {
       duration: 2000
     });
     toast.present();
+  }
+
+  async mis_servicios() {  
+
+    let body = {
+      tipo: this.idUsuario,
+      opc: 'mis_servicios'
+    };
+
+    this.postSer.postData(body, 'api.php').subscribe(async data =>{
+      if(data.success) {
+        console.log(data.result);   
+        this.servicios = data.result;  
+      } else {}
+    });
   }
 
 }

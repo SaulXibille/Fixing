@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
   	providedIn: 'root'
 })
 export class PostService {
-  	server : string = "http://localhost/appdata/";
+  	server : string = "http://xibille.sytes.net/appdata/";
 
   	constructor(public http : Http) { }
 
