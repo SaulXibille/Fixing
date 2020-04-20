@@ -85,6 +85,9 @@ export class PerfilPage implements OnInit {
       console.log(body['telefono']);
       this.postSer.postData(body, 'datosusuario.php').subscribe(async data =>{
         console.log(data);
+        if(data.success){
+          this.presentToast("La información del usuario ha sido actualiada.");
+        }
       });
     }
     else{
